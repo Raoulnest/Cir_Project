@@ -14,7 +14,10 @@ class CreateResponsableResponsablesTable extends Migration
     public function up()
     {
         Schema::create('responsable_responsables', function (Blueprint $table) {
-            $table->id();
+            $table->id('responsable_id');
+            $table->string('service_responsable');
+            $table->string('localisation_responsable');
+            
             $table->timestamps();
         });
     }

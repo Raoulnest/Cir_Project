@@ -14,7 +14,14 @@ class CreateProblemeAAssistersDetailsTable extends Migration
     public function up()
     {
         Schema::create('probleme_a_assisters_details', function (Blueprint $table) {
-            $table->id();
+            $table->id('probleme_a_assisters_details');
+            $table->unsignedBigInteger('probleme_a_assisters_id')->unique();
+            $table->unsignedBigInteger('solution_id')->unique();
+
+            $table->foreign('probleme_a_assisters_id')->references('probleme_a_assisters_id')->on('probleme_a_assisters');
+            $table->foreign('solution_id')->references('solution_id')->on('solution_solutions');
+            $table->string('statut_details');
+
             $table->timestamps();
         });
     }
