@@ -33,6 +33,7 @@ class TypesController extends Controller
         }
         return $tp;
     }
+    
     //functions de supprimer des types par id
     public function supprimer_type($id){
         $tp = Type_types::find($id);

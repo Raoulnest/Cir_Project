@@ -15,9 +15,9 @@ class CreateProblemeAAssistersTable extends Migration
     {
         Schema::create('probleme_a_assisters', function (Blueprint $table) {
             $table->id('probleme_a_assisters_id');
-            $table->unsignedBigInteger('user_id')->unique();
-            $table->unsignedBigInteger('user_a_assiter_id')->unique();
-            $table->unsignedBigInteger('probleme_id')->unique();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_a_assiter_id')->index();
+            $table->unsignedBigInteger('probleme_id')->index();
             $table->string('statut');
             $table->timestamps();
 

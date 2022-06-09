@@ -42,7 +42,7 @@ class Problemes_a_assisters_detailsController extends Controller
             return Response()->json(['message' => 'Problemes introuvables'], 404);
         }
         $pro->delete();
-        return Response()->json(['message' => 'Suppression avec succes'], 404);
+        return Response()->json(['message' => 'Suppression avec succees'], 404);
     }
 
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){

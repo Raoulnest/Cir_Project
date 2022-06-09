@@ -47,7 +47,7 @@ class ResponsablesController extends Controller
         return response(Null, 204);
     }
     
-
+    
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){
             $tables ='Responsable_responsables'; 
             $agents = Controller::listeParOrdre($tables,$attribut, $ordre, $indice, $limites);

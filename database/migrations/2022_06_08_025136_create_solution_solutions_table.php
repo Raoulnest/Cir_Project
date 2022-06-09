@@ -18,10 +18,10 @@ class CreateSolutionSolutionsTable extends Migration
             $table->string('libelle_solution');
             $table->integer('solution_parent_id')->nullable();
 
-            $table->unsignedBigInteger('probleme_id')->unique();
-            $table->unsignedBigInteger('type_id')->unique();
-            $table->unsignedBigInteger('user_id')->unique();
-            $table->unsignedBigInteger('responsable_id')->unique();
+            $table->unsignedBigInteger('probleme_id')->index();
+            $table->unsignedBigInteger('type_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('responsable_id')->index();
 
             $table->foreign('probleme_id')->references('probleme_id')->on('probleme_problemes');  
             $table->foreign('type_id')->references('type_id')->on('type_types');

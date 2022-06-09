@@ -34,6 +34,7 @@ class SolutionsController extends Controller
         $sol->update($request->all);
         return response($sol,201);
     }
+    
     //Suppression de la solution par id
     public function supprimer_solution($id){
         $sol = Solution_solutions::find($id);
