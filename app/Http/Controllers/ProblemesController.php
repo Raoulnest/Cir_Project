@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class ProblemesController extends Controller
 {
+
+     //function  qui affiche la liste des problemes
+     public function indexProblemes(){
+        
+        return view('indexProblemes');
+    }
     //function  qui affiche la liste des problemes
     public function listeProblemes(){
         $pro = response()->json(Probleme_problemes::all(),200);

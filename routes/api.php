@@ -12,7 +12,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('proGUI',[ProblemesController::class,'indexProblemes']);
+
 Route::get('problemes',[ProblemesController::class,'listeProblemes']);
+
 Route::get ('ajout_problemes',[ProblemesController::class,'ajoutProblemes']);
 Route::get('problemes/{id}',[ProblemesController::class,'problemesParID']);
 Route::get('delete_problemes/{id}',[ProblemesController::class,'supprimer_probleme']);

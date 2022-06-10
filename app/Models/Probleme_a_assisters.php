@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Probleme_a_assisters extends Model
 {
     use HasFactory;
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function Probleme_problemes(){
+        return $this->belongsTo(Probleme_problemes::class);
+    }
+
+    public function user_a_assister_user_a_assisters(){
+        return $this->belongsTo(User_a_assister_user_a_assisters::class);
+    }
+    
+    public function pro_assister_details(){
+        return $this->hasMany(Probleme_a_assisters_details::class);
+    }
 }

@@ -12,4 +12,11 @@ class Type_types extends Model
     protected $fillable = [
         'libelle',
     ];
+
+    public function probleme_problemes(){
+        return $this->hasMany(Probleme_problemes::class);
+    }
+    public function solution_solutions(){
+        return $this->hasMany(Solution_solutions::class);
+    }
 }
