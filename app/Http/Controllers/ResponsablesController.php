@@ -19,7 +19,7 @@ class ResponsablesController extends Controller
     }
 
     // function pour mettre a jour la table Agents_respo
-    public function misAjourAgents(Request $request){
+    public function misAjourAgents(Request $request,$id){
         $ag = Responsable_responsables::find($id);
         if (is_null($ag)) {
             return Response()->json(['message' => 'Agents_responsables introuvables'], 404);

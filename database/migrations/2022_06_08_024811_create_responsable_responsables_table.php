@@ -17,7 +17,6 @@ class CreateResponsableResponsablesTable extends Migration
             $table->id('responsable_id');
             $table->string('service_responsable');
             $table->string('localisation_responsable');
-            
             $table->timestamps();
         });
     }

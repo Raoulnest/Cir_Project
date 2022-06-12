@@ -24,7 +24,7 @@ class UsersController extends Controller
         //functions de recuperations des Problemes par id
         public function UserParID($id){
             $user = User::find($id);
-            if (is_null($User)) {
+            if (is_null($user)) {
                 return Response()->json(['message' => 'Utulisateur introuvables'], 404);
         }
             return $user;
@@ -46,6 +46,7 @@ class UsersController extends Controller
         $user->delete();
         return Response()->json(['message' => 'Suppression avec succees'], 404);
     }
+    
     // Liste des Users par ordre et limite d'affichage
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){
         

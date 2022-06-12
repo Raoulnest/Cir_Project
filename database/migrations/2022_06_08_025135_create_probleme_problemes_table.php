@@ -22,7 +22,6 @@ class CreateProblemeProblemesTable extends Migration
 
             $table->foreign('type_id')->references('type_id')->on('type_types');
             $table->foreign('user_id')->references('user_id')->on('users');
-
             $table->timestamps();
         });
     }

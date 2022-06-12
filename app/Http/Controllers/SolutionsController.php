@@ -12,11 +12,13 @@ class SolutionsController extends Controller
     public function listeSolutions(){
         return response()->json(Solution_solutions::all(),200);
     }
+
     //function pour ajouter des donnees dans la table solution 
     public function ajoutSolutions(Request $request){
     $sol = Solution_solutions::create($request->all());
         return response($sol);
     }
+
     //functions de recuperations des solutions par id
     public function solutionsParID($id){
         $sol = Solution_solutions::find($id);
@@ -25,6 +27,7 @@ class SolutionsController extends Controller
             }
         return $sol;
     }
+
     //function pour mettre a jour la table solution
     public function misAjourSolutions(Request $request,$id){
         $sol = Solution_solutions::find($id);
@@ -44,6 +47,8 @@ class SolutionsController extends Controller
         $sol->delete();
         return response(Null, 204);
     }
+
+    //Lister les solutions
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){
         
         $tables ='Solution_solutions'; 

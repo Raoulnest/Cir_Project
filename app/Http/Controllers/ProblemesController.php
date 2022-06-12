@@ -14,6 +14,7 @@ class ProblemesController extends Controller
         
         return view('indexProblemes');
     }
+    
     //function  qui affiche la liste des problemes
     public function listeProblemes(){
         $pro = response()->json(Probleme_problemes::all(),200);

@@ -8,16 +8,19 @@ use App\Http\Controllers\Controller;
 
 class TypesController extends Controller
 {
+    //Lister les types
     public function listeTypes(){
         return response()->json(Type_types::all(),200);
     }
+
     //function pour ajouter des donnees dans la table types 
     public function ajoutTypes(Request $request){
         $tp = Type_types::create($request->all());
         return response($tp,201);
     }
+
     // function pour mettre a jour la table types
-    public function misAjourTypes(Request $request){
+    public function misAjourTypes(Request $request,$id){
         $tp = Type_types::find($id);
         if (is_null($tp)) {
             return Response()->json(['message' => 'Types introuvables'], 404);
