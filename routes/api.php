@@ -16,7 +16,7 @@ Route::get('proGUI',[ProblemesController::class,'indexProblemes']);
 
 Route::get('problemes',[ProblemesController::class,'listeProblemes']);
 
-Route::get ('ajout_problemes',[ProblemesController::class,'ajoutProblemes']);
+Route::get('ajout_problemes',[ProblemesController::class,'ajoutProblemes']);
 Route::get('problemes/{id}',[ProblemesController::class,'problemesParID']);
 Route::get('delete_problemes/{id}',[ProblemesController::class,'supprimer_probleme']);
 Route::get('update_problemes/{id}',[ProblemesController::class,'misAjourProblemes']);
@@ -44,10 +44,17 @@ Route::get('update_agents/{id}',[ResponsablesController::class,'misAjourAgents']
 Route::get('listeAgents/{attribut}/{ordre}/{indice}/{limites}',[ResponsablesController::class,'listeParOrdreLimites']);
 Route::get('listeAgentsT/{attribut}',[ResponsablesController::class,'nbTotal']);
 
-Route::get('users',[usersController::class,'listeUsers']);
-Route::get('ajout_users',[usersController::class,'ajoutUsers']);
-Route::get('users/{id}',[usersController::class,'userParID']);
-Route::get('delete_users/{id}',[usersController::class,'supprimerUsers']);
-Route::get('update_users/{id}',[usersController::class,'misAjourUsers']);
-Route::get('liste_users/{attribut}/{ordre}/{indice}/{limites}',[usersController::class,'listeParOrdreLimites']);
+Route::get('assistants',[usersController::class,'listeUsers']);
+Route::get('ajout_assistant',[usersController::class,'ajoutUsers']);
+Route::get('assistant/{id}',[usersController::class,'userParID']);
+Route::get('delete_assistants/{id}',[usersController::class,'supprimerUsers']);
+Route::get('update_assistants/{id}',[usersController::class,'misAjourUsers']);
+Route::get('liste_assistants/{attribut}/{ordre}/{indice}/{limites}',[usersController::class,'listeParOrdreLimites']);
+
+Route::get('users',[Users_a_assisterController::class,'listeUsers']);
+Route::get('ajout_users',[Users_a_assisterController::class,'ajoutUsers']);
+Route::get('users/{id}',[Users_a_assisterController::class,'userParID']);
+Route::get('delete_users/{id}',[Users_a_assisterController::class,'supprimerUsers']);
+Route::get('update_users/{id}',[Users_a_assisterController::class,'misAjourUsers']);
+Route::get('liste_users/{attribut}/{ordre}/{indice}/{limites}',[Users_a_assisterController::class,'listeParOrdreLimites']);
 
