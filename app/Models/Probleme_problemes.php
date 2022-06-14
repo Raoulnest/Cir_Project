@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Probleme_problemes extends Model
 {
     use HasFactory;
-    protected $table = 'probleme_problemes';
     protected $fillable = [
         'libelle_probleme',
+        'probleme_parent_id',
     ];
     
     public function type_types(){

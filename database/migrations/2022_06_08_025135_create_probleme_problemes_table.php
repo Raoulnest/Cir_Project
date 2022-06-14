@@ -16,9 +16,8 @@ class CreateProblemeProblemesTable extends Migration
         Schema::create('probleme_problemes', function (Blueprint $table) {
             $table->id('probleme_id');
             $table->string('libelle_probleme');
-            $table->integer('probleme_parent_id')->nullable()->index();
-            
-            
+            $table->unsignedBigInteger('probleme_parent_id')->index()->nullable();
+
             $table->unsignedBigInteger('type_id')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index()->nullable();
 

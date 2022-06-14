@@ -8,24 +8,24 @@ use App\Http\Controllers\Controller;
 
 class ResponsablesController extends Controller
 {
-    public function listeAgents(){
+    public function listeResponsables(){
         return response()->json(Responsable_responsables::all(),200);
     }
 
     //function pour ajouter des donnees dans la table Responsable_responsables 
-    public function ajoutAgents(Request $request){
+    public function ajoutResponsables(Request $request){
         $ag = Responsable_responsables::create($request->all());
         return response($ag,201);
     }
 
     // function pour mettre a jour la table Agents_respo
-    public function misAjourAgents(Request $request,$id){
+    public function misAjourResponsables(Request $request,$id){
         $ag = Responsable_responsables::where('responsable_id','=',$id)->update($request->all());
         return response($ag);
     }
 
     //functions de recuperations des Agents_respo par id
-    public function agentParID($id){
+    public function responsableParID($id){
         $table ='Responsable_responsables';
         $ag = Controller::infosParID($table,'responsable_id',$id);
         if (is_null($ag)) {
@@ -35,7 +35,7 @@ class ResponsablesController extends Controller
     }
     
     // Suppression d'un agent responsable dans la table agent_respo
-    public function supprimer_agent($id){
+    public function supprimerResponsables($id){
         $ag = Responsable_responsables::where('responsable_id','=',$id)->delete();
         return response($ag);
     }

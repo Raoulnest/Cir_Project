@@ -16,11 +16,10 @@ class CreateSolutionSolutionsTable extends Migration
         Schema::create('solution_solutions', function (Blueprint $table) {
             $table->id('solution_id');
             $table->string('libelle_solution');
-            $table->Integer('rang')->nullable();
-            $table->integer('solution_parent_id')->nullable();
+            $table->unsignedBigInteger('rang')->nullable();
+            $table->unsignedBigInteger('solution_parent_id')->index()->nullable();
             $table->timestamps();
             
-
 
             $table->unsignedBigInteger('probleme_id')->index()->nullable();
             $table->unsignedBigInteger('type_id')->index()->nullable();
