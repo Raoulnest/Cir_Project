@@ -14,7 +14,6 @@ class Controller extends BaseController
 
     public function nbTotal($attribut,$tables){
         $usersCount=0;
-        //$tables = 'responsables_responsables';
         $usersCount = DB::table($tables)->orderBy($attribut)->count();
         return $usersCount;
     }
@@ -26,4 +25,11 @@ class Controller extends BaseController
         $donne = ['nombre Totale est '=>$nombreTotal,'liste ' =>$elements] ; 
             return $donne;
 }
+
+public function infosParID($tables,$id, $id1){ 
+    $donnee= DB::table($tables)->where($id,'=',$id1)->get();
+        return $donnee;
+}
+
+
 }

@@ -23,28 +23,26 @@ class UsersController extends Controller
 
         //functions de recuperations des Problemes par id
         public function UserParID($id){
-            $user = User::find($id);
+           
+            $table ='User';
+            $user = Controller::infosParID($table,'user_id',$id);
             if (is_null($user)) {
                 return Response()->json(['message' => 'Utulisateur introuvables'], 404);
         }
-            return $user;
+            return response($user);
     }
 
     // function pour mettre a jour la table User
     public function misAjourUsers(Request $request,$id){
-        $user = User::find($id);
-        $user->update($request->all);
-        return response($user,201);
+        $user = User::where('user_id','=',$id)->update($request->all());
+        return Response($user);
+       
     }
 
     //Suppression d'User par id
     public function supprimer_User($id){
-        $user = User::find($id);
-        if (is_null($user)) {
-            return Response()->json(['message' => 'User introuvables'], 404);
-        }
-        $user->delete();
-        return Response()->json(['message' => 'Suppression avec succees'], 404);
+        $user = User::where('user_id','=',$id)->delete();
+        return Response($user);
     }
     
     // Liste des Users par ordre et limite d'affichage

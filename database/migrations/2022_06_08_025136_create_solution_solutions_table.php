@@ -16,19 +16,23 @@ class CreateSolutionSolutionsTable extends Migration
         Schema::create('solution_solutions', function (Blueprint $table) {
             $table->id('solution_id');
             $table->string('libelle_solution');
+            $table->Integer('rang')->nullable();
             $table->integer('solution_parent_id')->nullable();
+            $table->timestamps();
+            
 
-            $table->unsignedBigInteger('probleme_id')->index();
-            $table->unsignedBigInteger('type_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('responsable_id')->index();
+
+            $table->unsignedBigInteger('probleme_id')->index()->nullable();
+            $table->unsignedBigInteger('type_id')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();;
+            $table->unsignedBigInteger('responsable_id')->index()->nullable();
 
             $table->foreign('probleme_id')->references('probleme_id')->on('probleme_problemes');  
             $table->foreign('type_id')->references('type_id')->on('type_types');
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('responsable_id')->references('responsable_id')->on('responsable_responsables');
-            $table->Integer('rang');
-            $table->timestamps();
+           
+            
         });
     }
 

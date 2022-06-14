@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Type_types;
 use App\Http\Controllers\Controller;
 
+
+
 class TypesController extends Controller
 {
+
     //Lister les types
     public function listeTypes(){
         return response()->json(Type_types::all(),200);
@@ -21,30 +24,24 @@ class TypesController extends Controller
 
     // function pour mettre a jour la table types
     public function misAjourTypes(Request $request,$id){
-        $tp = Type_types::find($id);
-        if (is_null($tp)) {
-            return Response()->json(['message' => 'Types introuvables'], 404);
-        }
-        $tp->update($request->all);
+        $tp = Type_types::where('type_id','=',$id)->update($request->all());
         return response($tp,201);
     }
+    
     //functions de recuperations des types par id
-    public function typesParID($id){
-        $tp = Type_types::find($id);
+    public function typesParID($id){        
+        $table ='Type_types';
+        $tp = Controller::infosParID($table,'type_id',$id);
         if (is_null($tp)) {
             return Response()->json(['message' => 'Types introuvables'], 404);
         }
-        return $tp;
+        return response($tp,201);
     }
     
     //functions de supprimer des types par id
-    public function supprimer_type($id){
-        $tp = Type_types::find($id);
-        if (is_null($tp)) {
-            return Response()->json(['message' => 'Types introuvables'], 404);
-        }
-        $tp->delete();
-        return response(Null, 204);
+    public function supprimer_type($id){        
+        $tp = Type_types::where('type_id','=',$id)->delete();
+        return response($tp);
     }
 
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){

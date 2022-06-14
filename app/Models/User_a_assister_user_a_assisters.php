@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class User_a_assister_user_a_assisters extends Model
 {
     use HasFactory;
+    protected $table = 'user_a_assister_user_a_assisters';
+    protected $fillable = [
+        'nom_user_a_assister',
+        'service_user_assister'
+    ];
+
     public function users(){
         return $this->hasMany(User::class);
     }

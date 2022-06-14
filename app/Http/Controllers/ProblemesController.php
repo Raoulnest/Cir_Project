@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Probleme_problemes;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ProblemesController extends Controller
 {
@@ -29,32 +30,28 @@ class ProblemesController extends Controller
 
         //functions de recuperations des Problemes par id
         public function problemesParID($id){
-            $pro = Probleme_problemes::find($id);
+            $table ='Probleme_problemes';
+            $pro = Controller::infosParID($table,'probleme_id',$id);
             if (is_null($pro)) {
                 return Response()->json(['message' => 'Problemes introuvables'], 404);
         }
-            return $pro;
+            return response($pro,201);
     }
 
     // function pour mettre a jour la table Problemes_problemes
     public function misAjourProblemes(Request $request,$id){
-        $pro = Probleme_problemes::find($id);
-        $pro->update($request->all);
-        return response($pro,201);
+        $pro = Probleme_problemes::where('probleme_id','=',$id)->update($request->all());
+        return response($pro);
     }
 
     //Suppression de la solution par id
     public function supprimer_probleme($id){
-        $pro = Probleme_problemes::find($id);
-        if (is_null($pro)) {
-            return Response()->json(['message' => 'Problemes introuvables'], 404);
-        }
-        $pro->delete();
-        return Response()->json(['message' => 'Suppression avec succees'], 404);
+        $pro = Probleme_problemes::where('probleme_id','=',$id)->delete();
+        return response($pro,201);
+  
     }
 
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){
-        
         $tables ='Probleme_problemes'; 
         $pro = Controller::listeParOrdre($tables,$attribut, $ordre, $indice, $limites);
         return $pro;

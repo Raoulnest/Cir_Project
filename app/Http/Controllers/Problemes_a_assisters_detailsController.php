@@ -21,32 +21,27 @@ class Problemes_a_assisters_detailsController extends Controller
 
         //functions de recuperations des Problemes par id
         public function problemesParID($id){
-            $pro = Probleme_a_assisters_details::find($id);
+            $table ='Probleme_a_assisters_details';
+            $pro = Controller::infosParID($table,'probleme_a_assisters_details_id',$id);
             if (is_null($pro)) {
                 return Response()->json(['message' => 'Problemes introuvables'], 404);
         }
-            return $pro;
+            return response($pro,201);
     }
 
     // function pour mettre a jour la table Problemes_problemes
     public function misAjourProblemes(Request $request,$id){
-        $pro = Probleme_a_assisters_details::find($id);
-        $pro->update($request->all);
-        return response($pro,201);
+        $pro = Probleme_a_assisters_details::where('probleme_a_assisters_details_id','=',$id)->update($request->all());
+        return response($pro,201);   
     }
 
     //Suppression de la solution par id
-    public function supprimer_probleme($id){
-        $pro = Probleme_a_assisters_details::find($id);
-        if (is_null($pro)) {
-            return Response()->json(['message' => 'Problemes introuvables'], 404);
-        }
-        $pro->delete();
-        return Response()->json(['message' => 'Suppression avec succees'], 404);
+    public function supprimer_probleme($id){        
+        $pro = Probleme_a_assisters_details::where('probleme_a_assisters_details_id','=',$id)->delete();
+        return response($pro,201);
     }
 
     public function listeParOrdreLimites($attribut, $ordre, $indice, $limites){
-        
         $tables ='Probleme_a_assisters_details'; 
         $pro = Controller::listeParOrdre($tables,$attribut, $ordre, $indice, $limites);
         return $pro;

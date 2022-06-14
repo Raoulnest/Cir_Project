@@ -17,8 +17,10 @@ class CreateProblemeProblemesTable extends Migration
             $table->id('probleme_id');
             $table->string('libelle_probleme');
             $table->integer('probleme_parent_id')->nullable()->index();
-            $table->unsignedBigInteger('type_id')->index();
-            $table->unsignedBigInteger('user_id')->index();
+            
+            
+            $table->unsignedBigInteger('type_id')->index()->nullable();
+            $table->unsignedBigInteger('user_id')->index()->nullable();
 
             $table->foreign('type_id')->references('type_id')->on('type_types');
             $table->foreign('user_id')->references('user_id')->on('users');

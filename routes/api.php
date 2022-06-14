@@ -31,7 +31,7 @@ Route::get('listeSolutions/{attribut}/{ordre}/{indice}/{limites}',[SolutionsCont
 
 Route::get('types',[TypesController::class,'listeTypes']);
 Route::get('ajout_types',[TypesController::class,'ajoutTypes']);
-Route::get('types/{id}',[TypesController::class,'typesParID']);
+Route::get('types/{type_id}',[TypesController::class,'typesParID']);
 Route::get('delete_types/{id}',[TypesController::class,'supprimer_type']);
 Route::get('update_types/{id}',[TypesController::class,'misAjourTypes']);
 Route::get('listeTypes/{attribut}/{ordre}/{indice}/{limites}',[TypesController::class,'listeParOrdreLimites']);
