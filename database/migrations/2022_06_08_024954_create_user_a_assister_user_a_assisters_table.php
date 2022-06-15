@@ -13,7 +13,7 @@ class CreateUserAAssisterUserAAssistersTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_a_assister_user_a_assisters', function (Blueprint $table) {
+        Schema::create('user_a_rassister_user_a_assisters', function (Blueprint $table) {
             $table->id('user_a_assiter_id');
             $table->string('nom_user_a_assister');
             $table->string('service_user_assister');

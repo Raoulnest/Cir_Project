@@ -17,9 +17,12 @@ Route::get('proGUI',[ProblemesController::class,'indexProblemes']);
 Route::get('problemes',[ProblemesController::class,'listeProblemes']);
 Route::get ('ajout_problemes',[ProblemesController::class,'ajoutProblemes']);
 Route::get('problemes/{id}',[ProblemesController::class,'problemesParID']);
-Route::get('delete_problemes/{id}',[ProblemesController::class,'supprimer_probleme']);
+Route::get('delete_problemes/{id}',[ProblemesController::class,'supprimerProbleme']);
 Route::get('update_problemes/{id}',[ProblemesController::class,'misAjourProblemes']);
 Route::get('listeProblemes/{attribut}/{ordre}/{indice}/{limites}',[ProblemesController::class,'listeParOrdreLimites']);
+
+Route::get('problemesT',[ProblemesController::class,'listeProblemesTrier']);
+Route::get('problemesT/{libelle_probleme}',[ProblemesController::class,'listeProblemesTrier1']);
 
 Route::get('Problemes_a_assisters',[Problemes_a_assistersController::class,'listeProblemes']);
 Route::get('ajout_Problemes_a_assisters',[Problemes_a_assistersController::class,'ajoutProblemes']);
@@ -38,14 +41,14 @@ Route::get('liste_Problemes_a_assisters_details/{attribut}/{ordre}/{indice}/{lim
 Route::get('solutions',[SolutionsController::class,'listeSolutions']);
 Route::get ('ajout_solutions',[SolutionsController::class,'ajoutSolutions']);
 Route::get('solutions/{id}',[SolutionsController::class,'solutionsParID']);
-Route::get('delete_solutions/{id}',[SolutionsController::class,'supprimer_solution']);
+Route::get('delete_solutions/{id}',[SolutionsController::class,'supprimerSolution']);
 Route::get('update_solutions/{id}',[SolutionsController::class,'misAjourSolutions']);
 Route::get('listeSolutions/{attribut}/{ordre}/{indice}/{limites}',[SolutionsController::class,'listeParOrdreLimites']);
 
 Route::get('types',[TypesController::class,'listeTypes']);
 Route::get('ajout_types',[TypesController::class,'ajoutTypes']);
 Route::get('types/{id}',[TypesController::class,'typesParID']);
-Route::get('delete_types/{id}',[TypesController::class,'supprimer_type']);
+Route::get('delete_types/{id}',[TypesController::class,'supprimerType']);
 Route::get('update_types/{id}',[TypesController::class,'misAjourTypes']);
 Route::get('listeTypes/{attribut}/{ordre}/{indice}/{limites}',[TypesController::class,'listeParOrdreLimites']);
 

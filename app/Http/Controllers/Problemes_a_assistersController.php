@@ -8,19 +8,19 @@ use App\Http\Controllers\Controller;
 
 class Problemes_a_assistersController extends Controller
 {
-    //function  qui affiche la liste des problemes
+    //fonction  qui affiche la liste des problemes
     public function listeProblemes(){
         $pro = response()->json(Probleme_a_assisters::all(),200);
         return $pro;
     }
     
-    //function pour ajouter des donnees dans la table Probleme_problemes 
+    //fonction pour ajouter des donnees dans la table Probleme_problemes 
     public function ajoutProblemes(Request $request){
         $pro =Probleme_a_assisters::create($request->all());
         return response($pro);
         }
 
-        //functions de recuperations des Problemes par id
+        //fonction de recuperations des Problemes par id
         public function problemesParID($id){
             $table ='Probleme_a_assisters';
             $pro = Controller::infosParID($table,'probleme_a_assister_id',$id);
@@ -30,14 +30,14 @@ class Problemes_a_assistersController extends Controller
             return response($pro,201);
     }
 
-    // function pour mettre a jour la table Problemes_problemes
+    // fonction pour mettre a jour la table Problemes_problemes
     public function misAjourProblemes(Request $request,$id){
         $pro = Probleme_a_assisters::where('probleme_a_assister_id','=',$id)->update($request->all());
         return response($pro);
     }
 
     //Suppression de la solution par id
-    public function supprimer_probleme($id){
+    public function supprimerProbleme($id){
         
         $pro = Probleme_a_assisters::where('probleme_a_assister_id','=',$id)->delete();
         return response($pro);

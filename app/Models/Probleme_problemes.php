@@ -11,6 +11,8 @@ class Probleme_problemes extends Model
     protected $fillable = [
         'libelle_probleme',
         'probleme_parent_id',
+        'type_id',
+        'user_id',
     ];
     
     public function type_types(){

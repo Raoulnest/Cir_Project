@@ -10,7 +10,7 @@ class Responsable_responsables extends Model
     use HasFactory;
     protected $fillable = [
         'service_responsable',
-        'localisation_responsable'
+        'localisation_responsable',
     ];
 
     public function solution_solutions(){

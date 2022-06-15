@@ -10,6 +10,12 @@ class Solution_solutions extends Model
     use HasFactory;
     protected $fillable = [
         'libelle_solution',
+        'solution_parent_id',
+        'rang',
+        'probleme_id',
+        'type_id',
+        'user_id',
+        'responsable_id',
     ];
 
 

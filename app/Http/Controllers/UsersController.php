@@ -9,21 +9,20 @@ use App\Http\Controllers\Controller;
 class UsersController extends Controller
 {
     
-    //function  qui affiche la liste des Users
+    //fonction  qui affiche la liste des Users
     public function listeUsers(){
         $user = response()->json(User::all(),200);
         return $user;
     }
     
-    //function pour ajouter des donnees dans la table User 
+    //fonction pour ajouter des donnees dans la table User 
     public function ajoutUsers(Request $request){
         $user =User::create($request->all());
         return response($user);
         }
 
-        //functions de recuperations des Problemes par id
+        //fonction de recuperations des Problemes par id
         public function UserParID($id){
-           
             $table ='User';
             $user = Controller::infosParID($table,'user_id',$id);
             if (is_null($user)) {
@@ -32,7 +31,7 @@ class UsersController extends Controller
             return response($user);
     }
 
-    // function pour mettre a jour la table User
+    // fonction pour mettre a jour la table User
     public function misAjourUsers(Request $request,$id){
         $user = User::where('user_id','=',$id)->update($request->all());
         return Response($user);
@@ -40,7 +39,7 @@ class UsersController extends Controller
     }
 
     //Suppression d'User par id
-    public function supprimer_User($id){
+    public function supprimerUser($id){
         $user = User::where('user_id','=',$id)->delete();
         return Response($user);
     }
