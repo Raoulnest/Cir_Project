@@ -14,11 +14,11 @@ class Users_a_assisterController extends Controller
     return $user;
 }
 
-//fonction pour ajouter des donnees dans la table User 
-public function ajoutUsers(Request $request){
-    $user =User_a_assister_user_a_assisters::create($request->all());
-    return response($user);
-    }
+    //fonction pour ajouter des donnees dans la table User 
+    public function ajoutUsers(Request $request){
+        $user =User_a_assister_user_a_assisters::create($request->all());
+        return response($user);
+        }
 
     //fonction de recuperations des Problemes par id
     public function UserParID($id){

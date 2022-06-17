@@ -10,8 +10,21 @@ class SolutionsController extends Controller
 {
     //fonctions qui affiche la liste des solutions
     public function listeSolutions(){
+
         return response()->json(Solution_solutions::all(),200);
+
     }
+
+    //fonction qui affiche la liste des problemes trier
+    public function listeSolutionsTrier(){
+        $pro = response()->json(Solution_solutions::where('solution_parent_id','=',null)->get(),200);
+        return $pro;
+    }
+    public function listeSolutionsTrier1($parent_id){
+        $pro = response()->json(Solution_solutions::where('solution_parent_id','=',$parent_id)->get(),200);
+        return $pro;
+    }
+
     
     //fonction pour ajouter des donnees dans la table solution 
     public function ajoutSolutions(Request $request){

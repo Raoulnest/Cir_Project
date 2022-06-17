@@ -6,6 +6,10 @@ use App\Http\Controllers\ProblemesController;
 use App\Http\Controllers\SolutionsController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\ResponsablesController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Problemes_a_assisters_detailsController;
+use App\Http\Controllers\Problemes_a_assistersController;
+use App\Http\Controllers\Users_a_assisterController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -25,18 +29,18 @@ Route::get('problemesT',[ProblemesController::class,'listeProblemesTrier']);
 Route::get('problemesT/{libelle_probleme}',[ProblemesController::class,'listeProblemesTrier1']);
 
 Route::get('Problemes_a_assisters',[Problemes_a_assistersController::class,'listeProblemes']);
-Route::get('ajout_Problemes_a_assisters',[Problemes_a_assistersController::class,'ajoutProblemes']);
+Route::get('ajout_problemes_a_assisters',[Problemes_a_assistersController::class,'ajoutProblemes']);
 Route::get('Problemes_a_assisters/{id}',[Problemes_a_assistersController::class,'problemesParID']);
-Route::get('delete_Problemes_a_assisters/{id}',[Problemes_a_assistersController::class,'supprimerProblemes']);
-Route::get('update_Problemes_a_assisters/{id}',[Problemes_a_assistersController::class,'misAjourProblemes']);
-Route::get('liste_Problemes_a_assisters/{attribut}/{ordre}/{indice}/{limites}',[Problemes_a_assistersController::class,'listeParOrdreLimites']);
+Route::get('delete_problemes_a_assisters/{id}',[Problemes_a_assistersController::class,'supprimerProblemes']);
+Route::get('update_problemes_a_assisters/{id}',[Problemes_a_assistersController::class,'misAjourProblemes']);
+Route::get('liste_problemes_a_assisters/{attribut}/{ordre}/{indice}/{limites}',[Problemes_a_assistersController::class,'listeParOrdreLimites']);
 
 Route::get('Problemes_a_assisters_details',[Problemes_a_assisters_detailsController::class,'listeProblemes']);
-Route::get('ajout_Problemes_a_assisters_details',[Problemes_a_assisters_detailsController::class,'ajoutProblemes']);
+Route::get('ajout_problemes_a_assisters_details',[Problemes_a_assisters_detailsController::class,'ajoutProblemes']);
 Route::get('Problemes_a_assisters_details/{id}',[Problemes_a_assisters_detailsControllerterController::class,'problemesParID']);
-Route::get('delete_Problemes_a_assisters_details/{id}',[Problemes_a_assisters_detailsController::class,'supprimerProblemes']);
-Route::get('update_Problemes_a_assisters_details/{id}',[Problemes_a_assisters_detailsController::class,'misAjourProblemes']);
-Route::get('liste_Problemes_a_assisters_details/{attribut}/{ordre}/{indice}/{limites}',[Problemes_a_assisters_detailsController::class,'listeParOrdreLimites']);
+Route::get('delete_problemes_a_assisters_details/{id}',[Problemes_a_assisters_detailsController::class,'supprimerProblemes']);
+Route::get('update_problemes_a_assisters_details/{id}',[Problemes_a_assisters_detailsController::class,'misAjourProblemes']);
+Route::get('liste_problemes_a_assisters_details/{attribut}/{ordre}/{indice}/{limites}',[Problemes_a_assisters_detailsController::class,'listeParOrdreLimites']);
 
 Route::get('solutions',[SolutionsController::class,'listeSolutions']);
 Route::get ('ajout_solutions',[SolutionsController::class,'ajoutSolutions']);
@@ -44,6 +48,10 @@ Route::get('solutions/{id}',[SolutionsController::class,'solutionsParID']);
 Route::get('delete_solutions/{id}',[SolutionsController::class,'supprimerSolution']);
 Route::get('update_solutions/{id}',[SolutionsController::class,'misAjourSolutions']);
 Route::get('listeSolutions/{attribut}/{ordre}/{indice}/{limites}',[SolutionsController::class,'listeParOrdreLimites']);
+
+Route::get('soluitionT',[ProblemesController::class,'listeSolutionsTrier']);
+Route::get('soluitionT/{libelle_solution}',[ProblemesController::class,'listeSolutionsTrier1']);
+
 
 Route::get('types',[TypesController::class,'listeTypes']);
 Route::get('ajout_types',[TypesController::class,'ajoutTypes']);

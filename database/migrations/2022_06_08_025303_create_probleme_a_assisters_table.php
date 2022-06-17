@@ -16,13 +16,13 @@ class CreateProblemeAAssistersTable extends Migration
         Schema::create('probleme_a_assisters', function (Blueprint $table) {
             $table->id('probleme_a_assisters_id');
             $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedBigInteger('user_a_assiter_id')->index();
+            $table->unsignedBigInteger('user_a_assister_id')->index();
             $table->unsignedBigInteger('probleme_id')->index();
             $table->string('statut');
             $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('users');  
-            $table->foreign('user_a_assiter_id')->references('user_a_assiter_id')->on('user_a_assister_user_a_assisters');
+            $table->foreign('user_a_assister_id')->references('user_a_assister_id')->on('user_a_rassister_user_a_assisters');
             $table->foreign('probleme_id')->references('probleme_id')->on('probleme_problemes');
             
         });

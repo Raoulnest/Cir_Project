@@ -21,9 +21,6 @@ class Probleme_problemes extends Model
     public function users(){
         return $this->belongsTo(User::class);
     }
-    
-
-
 
     public function pro_assisters(){
         return $this->hasMany(Probleme_a_assisters::class);
