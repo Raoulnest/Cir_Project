@@ -14,7 +14,7 @@ class ProblemesController extends Controller
     
      //fonction  qui affiche la liste des problemes
      public function indexProblemes(){
-        return view('problemes.index');
+        return view('index');
     }
     
     //fonction  qui affiche la liste des problemes

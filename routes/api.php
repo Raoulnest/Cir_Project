@@ -49,8 +49,8 @@ Route::get('delete_solutions/{id}',[SolutionsController::class,'supprimerSolutio
 Route::get('update_solutions/{id}',[SolutionsController::class,'misAjourSolutions']);
 Route::get('listeSolutions/{attribut}/{ordre}/{indice}/{limites}',[SolutionsController::class,'listeParOrdreLimites']);
 
-Route::get('soluitionT',[ProblemesController::class,'listeSolutionsTrier']);
-Route::get('soluitionT/{libelle_solution}',[ProblemesController::class,'listeSolutionsTrier1']);
+Route::get('soluitionT',[SolutionsController::class,'listeSolutionsTrier']);
+Route::get('soluitionT/{libelle_solution}',[SolutionsController::class,'listeSolutionsTrier1']);
 
 
 Route::get('types',[TypesController::class,'listeTypes']);
